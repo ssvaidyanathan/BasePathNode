@@ -43,7 +43,8 @@ Request:
 curl -X GET 
 	-H "Content-Type: application/json" 
 	-H "X-Host: api.enterprise.apigee.com" 
-	-H "X-Org: testorg" -H "Authorization: Basic c3N2YWl***"  
+	-H "X-Org: testorg" 
+	-H "Authorization: Basic c3N2YWl***"  
 	"https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc"
 ```
 
