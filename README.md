@@ -28,10 +28,10 @@ Steps:
 		* Content-Type: application/json
 
 	* To get all Basepaths:
-		https://{org}-{env}.apigee.net/v1/apis/basepaths
+		`https://{org}-{env}.apigee.net/v1/apis/basepaths`
 
-	* To searach for a basepath:
-		https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc
+	* To search for a basepath:
+		`https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc`
 
 ----------------
 Sample :
