@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="testNode">
+    <Basepaths>/testnode</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1485130902143</CreatedAt>
+    <CreatedBy>ssvaidyanathan@apigee.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>testNode</DisplayName>
+    <LastModifiedAt>1485131175657</LastModifiedAt>
+    <LastModifiedBy>ssvaidyanathan@apigee.com</LastModifiedBy>
+    <Policies/>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>node://hello-world.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>
