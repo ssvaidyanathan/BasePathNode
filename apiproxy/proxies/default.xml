@@ -19,6 +19,5 @@
     </HTTPProxyConnection>
     <RouteRule name="default">
         <TargetEndpoint>default</TargetEndpoint>
-        <TargetEndpoint>secure</TargetEndpoint>
     </RouteRule>
 </ProxyEndpoint>
