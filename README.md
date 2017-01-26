@@ -21,7 +21,7 @@ Steps:
 
 * Once the maven command is successful, the proxy bundle must be deployed into Edge
 * To run the API:
-	* API takes the following parameters:
+	* API takes the following headers:
 		* X-Org = The Edge Org where you want to search the basepath
 		* X-Host = Mgmt Host (for example - api.enterprise.apigee.com)
 		* Authorization = Basic auth (base64 encoded value of your Edge_User:Edge_Password)
