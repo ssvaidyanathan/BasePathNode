@@ -32,3 +32,32 @@ Steps:
 
 	* To searach for a basepath:
 		https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc
+
+----------------
+Sample :
+----------------
+
+Request:
+
+`
+curl -X GET 
+	-H "Content-Type: application/json" 
+	-H "X-Host: api.enterprise.apigee.com" 
+	-H "X-Org: testorg" -H "Authorization: Basic c3N2YWlkeWFuYXRoYW5AYXBpZ2VlLmNvbTpUaXR0dTU0MzIxIQ=="  "https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc"
+`
+
+Response:
+
+`
+[
+  {
+    "basepath": "/abc/v1",
+    "proxy": "currency-v1"
+  },
+  {
+    "basepath": "/abcd1/v1/logs",
+    "proxy": "currency-v1"
+  }
+]
+
+`
