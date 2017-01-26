@@ -28,10 +28,10 @@ Steps:
 		* Content-Type: application/json
 
 	* To get all Basepaths:
-		https://{org}-{env}.apigee.net/v1/apis/basepaths
+		`https://{org}-{env}.apigee.net/v1/apis/basepaths`
 
-	* To searach for a basepath:
-		https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc
+	* To search for a basepath:
+		`https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc`
 
 ----------------
 Sample :
@@ -39,16 +39,17 @@ Sample :
 
 Request:
 
-`
+```
 curl -X GET 
 	-H "Content-Type: application/json" 
 	-H "X-Host: api.enterprise.apigee.com" 
-	-H "X-Org: testorg" -H "Authorization: Basic c3N2YWlkeWFuYXRoYW5AYXBpZ2VlLmNvbTpUaXR0dTU0MzIxIQ=="  "https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc"
-`
+	-H "X-Org: testorg" -H "Authorization: Basic c3N2YWl***"  
+	"https://{org}-{env}.apigee.net/v1/apis/basepaths?search=abc"
+```
 
 Response:
 
-`
+```
 [
   {
     "basepath": "/abc/v1",
@@ -60,4 +61,4 @@ Response:
   }
 ]
 
-`
+```
