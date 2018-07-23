@@ -10,7 +10,19 @@
         <Request/>
         <Response/>
     </PostFlow>
-    <Flows/>
+    <Flows>
+        <Flow name="Flow-1">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>RF-MissingFields</Name>
+                    <Condition>(request.header.X-Host = null or request.header.X-Host = "") or (request.header.X-Org = null or request.header.X-Org = "") or (request.header.Authorization = null or request.header.Authorization = "")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/basepaths") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
     <HTTPProxyConnection>
         <BasePath>/v1/apis</BasePath>
         <Properties/>

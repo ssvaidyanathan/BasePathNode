@@ -32,6 +32,10 @@ router.route("/basepaths")
 
       getAllAPIs(req.get("X-Host"), req.get("X-Org"), req.get("Authorization"))
       .then(function(allAPIs){
+        if(allAPIs.code >=400){
+          res.statusCode = allAPIs.code;
+          res.json({message: allAPIs.msg});   
+        }
         var p = Promise.all(allAPIs.map(function(api){
           return getAPIRevision(req.get("X-Host"), req.get("X-Org"), req.get("Authorization"), api);
         }));
@@ -112,7 +116,15 @@ function mgmtAPI(host, path, auth, type){
           data += d;
       });
       res.on("end", function(){
-        fulfill(JSON.parse(data));
+        if(res.statusCode === 200)
+          fulfill(JSON.parse(data));
+        else{
+          var errorBody = {
+            code: res.statusCode,
+            msg: res.statusMessage
+          }
+          fulfill(errorBody);
+        }
       });
     });
 
@@ -145,7 +157,7 @@ function getAPIRevision(host, org, auth, api){
     return obj;
   })
   .catch(function(e){
-    console.error("Catch handler getDeployedAPIsForEnv" + e);
+    console.error("Catch handler getAPIRevision" + e);
   });
 }
 
@@ -167,6 +179,6 @@ function getAPIBasePath(host, org, auth, api, revision){
     }
   })
   .catch(function(e){
-    console.error("Catch handler getDeployedAPIsForEnv" + e);
+    console.error("Catch handler getAPIBasePath" + e);
   });
 }
