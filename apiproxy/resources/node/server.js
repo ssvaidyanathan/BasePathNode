@@ -91,8 +91,6 @@ console.log("Magic happens on port " + port);
 function mgmtAPI(host, path, auth, type){
   return new Promise(function (fulfill, reject){
 
-
-
     var data = "";
     var options = {
       host: host,
@@ -118,18 +116,29 @@ function mgmtAPI(host, path, auth, type){
       res.on("end", function(){
         if(res.statusCode === 200)
           fulfill(JSON.parse(data));
-        else{
-          var errorBody = {
-            code: res.statusCode,
-            msg: res.statusMessage
-          }
+        else if(res.statusCode === 400){
+          var errorBody = {"code": res.statusCode, "msg": "Bad Request"};
+          fulfill(errorBody);
+        }
+        else if(res.statusCode === 401){
+          var errorBody = {"code": res.statusCode, "msg": "Unauthorized"};
+          fulfill(errorBody);
+        }
+        else if(res.statusCode === 403){
+          var errorBody = {"code": res.statusCode, "msg": "Forbidden"};
+          fulfill(errorBody);
+        }
+        else if(res.statusCode >= 500){
+          var errorBody = {"code": res.statusCode, "msg": "Internal Server Error"};
           fulfill(errorBody);
         }
       });
     });
 
-    req.on("error", function(e) {
+   req.on("error", function(e) {
       console.error(e);
+      var errorBody = {"code": 500, "msg": "Internal Server Error"};
+      fulfill(errorBody);
     });
 
     req.end();
